@@ -6,8 +6,9 @@ import pandas as pd
 
 pdf_directory = r"C:\Users\LukasOrellanaFarías\OneDrive - RODA ENERGIA\Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\CGE"
 
-patron_boleta = r"N[°º]\s*(\d+)" 
-patron_cliente = r"N[°º]\s*Cliente.*?(\d+)"
+patron_boleta = r"N[°º]\s*(\d{5,9})" 
+
+patron_cliente = r"N[°º]\s+Cliente.*?\s+(\d{7})"
 countador = 0
 
 data = []

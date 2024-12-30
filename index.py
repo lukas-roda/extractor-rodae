@@ -3,6 +3,7 @@ import subprocess
 import pandas as pd
 from st_aggrid import AgGrid
 from extraccion import *
+import os
 
 st.title("Boletas descargadas de")
 st.sidebar.title("Menu")
@@ -16,11 +17,13 @@ if app_mode == "CGE":
         
         if result.stderr:
             st.text_area("Errores", result.stderr)
-    
         try:
             excel_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_cge.xlsx"
-            st.markdown(f"[El archivo Excel se guardó en: {excel_path}](file:///{excel_path})")
-            df = pd.read_excel(excel_path)
+            if os.path.exists(excel_path):
+                st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
+            else:
+                st.error("El archivo Excel no se encontró.")
+            df = pd.read_excel(excel_path)  
             AgGrid(df)
         except Exception as e:
             st.error(f"Error al leer el archivo Excel o el archivo no fue encontrado: {e}")
@@ -32,9 +35,13 @@ elif app_mode == "Enel":
 
         if result.stderr:
             st.text_area("Errores", result.stderr)
+        
         try:
             excel_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_enel.xlsx"
-            st.markdown(f"[El archivo Excel se guardó en: {excel_path}](file:///{excel_path})")
+            if os.path.exists(excel_path):
+                st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
+            else:
+                st.error("El archivo Excel no se encontró.")
             df = pd.read_excel(excel_path)
             AgGrid(df)
         except Exception as e:
@@ -49,7 +56,10 @@ elif app_mode == "ESSBIO":
             st.text_area("Errores", result.stderr)
         try:
             excel_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_essbio.xlsx"
-            st.markdown(f"[El archivo Excel se guardó en: {excel_path}](file:///{excel_path})")
+            if os.path.exists(excel_path):
+                st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
+            else:
+                st.error("El archivo Excel no se encontró.")
             df = pd.read_excel(excel_path)
             AgGrid(df)
         except Exception as e:
