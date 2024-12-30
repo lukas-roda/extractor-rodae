@@ -1,8 +1,7 @@
 import os
 import fitz
 
-pdf_path = r"C:\Users\LukasOrellanaFarías\OneDrive - RODA ENERGIA\Digitalización de facturas (Agua) - Banco Estado\Facturas a procesar\factura_1295128 - 1295128.pdf"
-
+pdf_path = r"C:\Users\LukasOrellanaFarías\OneDrive - RODA ENERGIA\Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\Enel\1581439K_325942536.pdf"
 def extract_information(pdf_path):
     text = ''
     with fitz.open(pdf_path) as pdf:
