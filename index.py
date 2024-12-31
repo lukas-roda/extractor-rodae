@@ -4,7 +4,7 @@ import pandas as pd
 from st_aggrid import AgGrid
 from extraccion import *
 import os
-import extraccion.upload_to_onedrive as uto
+import function.upload_to_onedrive as uto
 
 st.title("Boletas descargadas de")
 st.sidebar.title("Menu")
