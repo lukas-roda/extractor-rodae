@@ -38,7 +38,7 @@ elif app_mode == "Enel":
             st.text_area("Errores", result.stderr)
         
         try:
-            excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\CGE\boletas_enel.xlsx")
+            excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\Enel\boletas_enel.xlsx")
             if os.path.exists(excel_path):
                 st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
             else:

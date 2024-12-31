@@ -5,7 +5,7 @@ import pandas as pd
 import upload_to_onedrive as uto
 
 pdf_directory = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\Enel")
-excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\CGE\boletas_enel.xlsx")
+excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\Enel\boletas_enel.xlsx")
 
 
 patron_boleta = r"N[°º]\s*(\d+)" 

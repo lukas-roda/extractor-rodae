@@ -63,7 +63,7 @@ df = pd.DataFrame(data, columns=["Nombre del archivo", "Número de boleta", "Nú
 
 
 try:
-    nombre_archivo = "boletas_enel.xlsx"
+    nombre_archivo = "boletas_essbio.xlsx"
     df.to_excel(os.path.join(pdf_directory, nombre_archivo),index=False)
     print("Fin de la iteracion, archivo guardado en", excel_path)
 except Exception as e:
