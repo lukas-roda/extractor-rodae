@@ -2,9 +2,11 @@ import fitz
 import re
 import os
 import pandas as pd
+import upload_to_onedrive as uto
 
+pdf_directory = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\Enel")
+excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\CGE\boletas_enel.xlsx")
 
-pdf_directory = r"C:\Users\LukasOrellanaFarías\OneDrive - RODA ENERGIA\Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\Enel"
 
 patron_boleta = r"N[°º]\s*(\d+)" 
 patron_cliente = r"(?:PAT\s)?([1-9]\d{4,6}[-–—−][\dA-Z]*)"
@@ -61,9 +63,9 @@ df = pd.DataFrame(data, columns=["Nombre del archivo", "Número de boleta", "Nú
 
 
 try:
-    save_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_enel.xlsx"
-    df.to_excel(r"C:\Users\LukasOrellanaFarías\Desktop\boletas_enel.xlsx", index=False)
-    print("Fin de la iteracion, archivo guardado en", save_path)
+    nombre_archivo = "boletas_enel.xlsx"
+    df.to_excel(os.path.join(pdf_directory, nombre_archivo),index=False)
+    print("Fin de la iteracion, archivo guardado en", excel_path)
 except Exception as e:
     print(f"Error al guardar el archivo Excel: {e}")
 

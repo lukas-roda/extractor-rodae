@@ -4,6 +4,7 @@ import pandas as pd
 from st_aggrid import AgGrid
 from extraccion import *
 import os
+import extraccion.upload_to_onedrive as uto
 
 st.title("Boletas descargadas de")
 st.sidebar.title("Menu")
@@ -18,7 +19,7 @@ if app_mode == "CGE":
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
-            excel_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_cge.xlsx"
+            excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\CGE\boletas_cge.xlsx")
             if os.path.exists(excel_path):
                 st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
             else:
@@ -37,7 +38,7 @@ elif app_mode == "Enel":
             st.text_area("Errores", result.stderr)
         
         try:
-            excel_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_enel.xlsx"
+            excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Electricidad) - Banco Estado\Facturas a procesar\CGE\boletas_enel.xlsx")
             if os.path.exists(excel_path):
                 st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
             else:
@@ -55,7 +56,7 @@ elif app_mode == "ESSBIO":
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
-            excel_path = r"C:\Users\LukasOrellanaFarías\Desktop\boletas_essbio.xlsx"
+            excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Agua) - Banco Estado\Facturas a procesar\Essbio\boletas_essbio.xlsx")
             if os.path.exists(excel_path):
                 st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
             else:
