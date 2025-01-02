@@ -33,7 +33,7 @@ def search_in_text(pdf_directory, patron_boleta, patron_cliente, nombre_archivo,
             else:
                 print(f"No se encontró un número de boleta en el archivo.------------------------------------------------")
 
-            
+        
             resultado_cliente = re.search(patron_cliente,texto_extraido, re.DOTALL)
             if resultado_cliente:
                 numero_cliente = resultado_cliente.group(1)
