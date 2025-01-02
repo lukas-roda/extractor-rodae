@@ -9,6 +9,7 @@
 </p>
 
 ## Dependencias
+Se recomienda el uso de python 3.11 en adelante
 ### Librerías de Python
 - pandas
 - streamlit
