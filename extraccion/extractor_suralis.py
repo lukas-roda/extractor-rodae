@@ -8,7 +8,7 @@ import re
 
 pdf_directory = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Agua) - Banco Estado\Facturas a procesar\Suralis")
 excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Agua) - Banco Estado\Facturas a procesar\Suralis\boletas_suralis.xlsx")
-patron_boleta = r"(N[°º]\s\b\d{7,8}\b)" 
+patron_boleta = r"N[°º]\s(\b\d{7,8}\b)" 
 patron_cliente = r"Número de cliente: \s*(\d+(?:-[0-9kK]+)?)"
 nombre_archivo = "boletas_suralis.xlsx"
 
