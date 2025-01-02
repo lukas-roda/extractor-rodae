@@ -20,7 +20,8 @@ def search_in_text(pdf_directory, patron_boleta, patron_cliente, nombre_archivo,
     data = []
     for archivo in os.listdir(pdf_directory):
         try:
-            
+            numero_boleta = None
+            numero_cliente = None
             countador += 1
             archivo_path = os.path.join(pdf_directory, archivo)
             texto_extraido = extract_information(archivo_path)
@@ -28,18 +29,19 @@ def search_in_text(pdf_directory, patron_boleta, patron_cliente, nombre_archivo,
             print("boleta numero: ", countador)
             print("Nombre del archivo: ", archivo)
             if resutado_boleta:
-                numero_boleta = resutado_boleta.group(1)
+                numero_boleta = resutado_boleta.group(1) or resutado_boleta.group(2)
                 print(f"Número de boleta: {numero_boleta}")
             else:
+                numero_boleta = "No encontrado"
                 print(f"No se encontró un número de boleta en el archivo.------------------------------------------------")
 
         
             resultado_cliente = re.search(patron_cliente,texto_extraido, re.DOTALL)
             if resultado_cliente:
-                numero_cliente = resultado_cliente.group(1)
+                numero_cliente = resultado_cliente.group(1) or resultado_cliente.group(2) or resultado_cliente.group(3)
                 print(f"Número de cliente encontrado:", numero_cliente)
             else:
-                numero_cliente = None
+                numero_cliente = "No encontrado"
                 print(f"No se encontró el número de cliente--------------------------------------------")
             
             
