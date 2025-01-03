@@ -2,6 +2,7 @@
 if exist env\Scripts\activate (
     echo Entorno virtual de python ya esta creado
     echo Iniciando aplicacion...
+    call env\Scripts\activate
     python -m streamlit run index.py
 ) else (
 

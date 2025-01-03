@@ -5,7 +5,7 @@ from st_aggrid import AgGrid
 from extraccion import *
 import os
 import function.upload_to_onedrive as uto
-
+python_interpreter = r"env\Scripts\python.exe"
 st.set_page_config(page_title="Boletas")
 st.title("Boletas descargadas de")
 st.sidebar.title("Menu")
@@ -18,7 +18,7 @@ if app_mode == "CGE":
     st.title("CGE")
     if st.button("Mostrar boletas descargadas de CGE"):
 
-        result = subprocess.run(["python", "extraccion\extractor_cge.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_cge.py"], capture_output=True, text=True)
         
         if result.stderr:
             st.text_area("Errores", result.stderr)
@@ -36,7 +36,7 @@ if app_mode == "CGE":
 elif app_mode == "Enel":
     st.title("Enel")
     if st.button("Mostrar boletas descargadas de Enel"):
-        result = subprocess.run(["python", "extraccion\extractor_enel.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_enel.py"], capture_output=True, text=True)
 
         if result.stderr:
             st.text_area("Errores", result.stderr)
@@ -57,7 +57,7 @@ elif app_mode == "ESSBIO":
 
     st.title("ESSBIO")
     if st.button("Mostrar boletas descargadas de ESSBIO") :
-        result = subprocess.run(["python", "extraccion\extractor_essbio.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_essbio.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -76,7 +76,7 @@ elif app_mode == "ESSBIO":
 elif app_mode == "Aguas Andinas":
     st.title("Aguas Andinas")
     if st.button("Mostrar boletas descargadas de Aguas Andinas"):
-        result = subprocess.run(["python", "extraccion\extractor_aguasandinas.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_aguasandinas.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -93,7 +93,7 @@ elif app_mode == "Aguas Andinas":
 elif app_mode == "Edelmag":
     st.title("Edelmag")
     if st.button("Mostrar boletas descargadas de Edelmag"):
-        result = subprocess.run(["python", "extraccion\extractor_edelmag.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_edelmag.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -110,7 +110,7 @@ elif app_mode == "Edelmag":
 elif app_mode == "Aguas Araucania":
     st.title("Aguas Araucania")
     if st.button("Mostrar boletas descargadas de Aguas Araucania"):
-        result = subprocess.run(["python", "extraccion\extractor_aguasaraucania.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_aguasaraucania.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -127,7 +127,7 @@ elif app_mode == "Aguas Araucania":
 elif app_mode == "Aguas del altiplano":
     st.title("Aguas del altiplano")
     if st.button("Mostrar boletas descargadas de Aguas del altiplano"):
-        result = subprocess.run(["python", "extraccion\extractor_aguasdelaltiplano.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_aguasdelaltiplano.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -144,7 +144,7 @@ elif app_mode == "Aguas del altiplano":
 elif app_mode == "Casablanca":
     st.title("Casablanca")
     if st.button("Mostrar boletas descargadas de Casablanca"):
-        result = subprocess.run(["python", "extraccion\extractor_casablanca.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_casablanca.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -161,7 +161,7 @@ elif app_mode == "Casablanca":
 elif app_mode == "Tiltil":
     st.title("Tiltil")
     if st.button("Mostrar boletas descargadas de Tiltil"):
-        result = subprocess.run(["python", "extraccion\extractor_tiltil.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_tiltil.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -178,7 +178,7 @@ elif app_mode == "Tiltil":
 elif app_mode == "Aguas magallanes":
     st.title("Aguas magallanes")
     if st.button("Mostrar boletas descargadas de Aguas magallanes"):
-        result = subprocess.run(["python", "extraccion\extractor_aguasmagallanes.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_aguasmagallanes.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -195,7 +195,7 @@ elif app_mode == "Aguas magallanes":
 elif app_mode == "Chilquinta":
     st.title("Chilquinta")
     if st.button("Mostrar boletas descargadas de Chilquinta"):
-        result = subprocess.run(["python", "extraccion\extractor_chilquinta.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_chilquinta.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -212,7 +212,7 @@ elif app_mode == "Chilquinta":
 elif app_mode == "Eepa":
     st.title("Eepa")
     if st.button("Mostrar boletas descargadas de Eepa"):
-        result = subprocess.run(["python", "extraccion\extractor_eepa.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_eepa.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -229,7 +229,7 @@ elif app_mode == "Eepa":
 elif app_mode == "Esval":
     st.title("Esval")
     if st.button("Mostrar boletas descargadas de Esval"):
-        result = subprocess.run(["python", "extraccion\extractor_esval.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_esval.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -246,7 +246,7 @@ elif app_mode == "Esval":
 elif app_mode == "Nueva atacama":
     st.title("Nueva atacama")
     if st.button("Mostrar boletas descargadas de Nueva atacama"):
-        result = subprocess.run(["python", "extraccion\extractor_nuevaatacama.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_nuevaatacama.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -263,7 +263,7 @@ elif app_mode == "Nueva atacama":
 elif app_mode == "Saesa":
     st.title("Saesa")
     if st.button("Mostrar boletas descargadas de Saesa"):
-        result = subprocess.run(["python", "extraccion\extractor_saesa.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_saesa.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -280,7 +280,7 @@ elif app_mode == "Saesa":
 elif app_mode == "Suralis":
     st.title("Suralis")
     if st.button("Mostrar boletas descargadas de Suralis"):
-        result = subprocess.run(["python", "extraccion\extractor_suralis.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_suralis.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -297,7 +297,7 @@ elif app_mode == "Suralis":
 elif app_mode == "Saesa2":
     st.title("Saesa2")
     if st.button("Mostrar boletas descargadas de Saesa2"):
-        result = subprocess.run(["python", "extraccion\extractor_saesa2.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_saesa2.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
@@ -314,7 +314,7 @@ elif app_mode == "Saesa2":
 elif app_mode == "Aguas decimas":
     st.title("Aguas decimas")
     if st.button("Mostrar boletas descargadas de Aguas decimas"):
-        result = subprocess.run(["python", "extraccion\extractor_aguasdecimas.py"], capture_output=True, text=True)
+        result = subprocess.run([python_interpreter, "extraccion\extractor_aguasdecimas.py"], capture_output=True, text=True)
         if result.stderr:
             st.text_area("Errores", result.stderr)
         try:
