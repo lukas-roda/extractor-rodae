@@ -11,7 +11,8 @@ st.title("Boletas descargadas de")
 st.sidebar.title("Menu")
 app_mode = st.sidebar.selectbox("Seleccione una opcion", ["CGE", "Enel", "ESSBIO", "Aguas Andinas", "Edelmag", "Aguas Araucania",
                                                            "Aguas del altiplano", "Casablanca","Tiltil", "Aguas magallanes",
-                                                           "Chilquinta", "Eepa", "Esval", "Nueva atacama", "Saesa", "Suralis", "Saesa2"])
+                                                           "Chilquinta", "Eepa", "Esval", "Nueva atacama", "Saesa", "Suralis", "Saesa2",
+                                                           "Aguas decimas"])
 
 if app_mode == "CGE":
     st.title("CGE")
@@ -310,3 +311,19 @@ elif app_mode == "Saesa2":
         except Exception as e:
             st.error(f"Error al leer el archivo Excel o el archivo no fue encontrado: {e}")
 
+elif app_mode == "Aguas decimas":
+    st.title("Aguas decimas")
+    if st.button("Mostrar boletas descargadas de Aguas decimas"):
+        result = subprocess.run(["python", "extraccion\extractor_aguasdecimas.py"], capture_output=True, text=True)
+        if result.stderr:
+            st.text_area("Errores", result.stderr)
+        try:
+            excel_path = os.path.join(uto.ONEDRIVE_PATH, r"Digitalización de facturas (Agua) - Banco Estado\Facturas a procesar\Aguas decimas\boletas_aguasdecimas.xlsx")
+            if os.path.exists(excel_path):
+                st.button("Mostrar excel", on_click=lambda: os.startfile(excel_path))
+            else:
+                st.error("El archivo Excel no se encontró.")
+            df = pd.read_excel(excel_path)
+            AgGrid(df)
+        except Exception as e:
+            st.error(f"Error al leer el archivo Excel o el archivo no fue encontrado: {e}")
