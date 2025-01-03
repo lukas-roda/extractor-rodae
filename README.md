@@ -10,7 +10,7 @@ Esta aplicación permite listar y visualizar las facturas descargadas en tu ento
 
 ## Instalación
 
-1.  **Descarga:** Descarga la última versión disponible desde las [Releases](ENLACE_A_LAS_RELEASES_DE_GITHUB).
+1.  **Descarga:** Descarga la última versión disponible desde las [Releases](https://github.com/lukas-roda/extractor-rodae/releases).
 2.  **Descompresión:** Descomprime el archivo descargado en la ubicación deseada.
 3.  **Instalación de dependencias y creación del entorno virtual:**
     *   Navega a la carpeta de la aplicación desde el explorador de archivos.
